@@ -1,0 +1,148 @@
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import iconLinkedIn from "../images/link icons/linkedin.png";
+import iconTwitter from "../images/link icons/twitter.png";
+import iconGitHub from "../images/link icons/github.png";
+import laptop from "../images/laptop.png";
+import Grid from "@material-ui/core/Grid";
+import StartUp from "./StartUp/StartUp";
+import { Canvas } from "@react-three/fiber";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    color: "white",
+    height: "100vh",
+    overflow: "auto",
+    background: "linear-gradient(#441859, #C270E9)",
+  },
+  body: {
+    marginTop: "100px",
+    [theme.breakpoints.up("md")]: {
+      marginTop: "150px",
+    },
+  },
+  mainText: {
+    fontSize: "2.5rem",
+    [theme.breakpoints.up("sm")]: {
+      fontSize: "4rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      fontSize: "4.75rem",
+    },
+    marginTop: "0",
+    marginBottom: "4vh",
+  },
+  flexContainer: {
+    display: "flex",
+    flexDirection: "row",
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "column",
+    },
+  },
+  icons: {
+    marginRight: "2vw",
+    marginBottom: "4vh",
+    display: "flex",
+    flexDirection: "column",
+    [theme.breakpoints.up("md")]: {
+      flexDirection: "row",
+    },
+  },
+  icon: {
+    height: "25px",
+    width: "25px",
+    marginRight: "5px",
+  },
+  secondaryText: {
+    margin: "0",
+    maxWidth: "60vw",
+    fontSize: "1.25rem",
+    [theme.breakpoints.up("sm")]: {
+      maxWidth: "40vw",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "2rem",
+    },
+    [theme.breakpoints.up("lg")]: {
+      maxWidth: "30vw",
+      fontSize: "2rem",
+    },
+  },
+  laptopImg: {
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "60vw",
+    [theme.breakpoints.up("sm")]: {
+      width: "45vw",
+    },
+  },
+}));
+
+const LandingPage = () => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <Grid container>
+        <Grid item xs={1} />
+        <Grid item xs={10}>
+          <Grid container className={classes.body}>
+            <Grid item xs={12} md={6}>
+              <p className={classes.mainText}>
+                Front-end Web Developer & Designer
+              </p>
+              <div className={classes.flexContainer}>
+                <div>
+                  <div className={classes.icons}>
+                    <a
+                      href="https://www.linkedin.com/in/luke-treece-43a54817b/"
+                      target="_blank"
+                    >
+                      <img
+                        className={classes.icon}
+                        src={iconLinkedIn}
+                        alt="LinkedIn"
+                      />
+                    </a>
+                    <a href="https://github.com/ltreece555" target="_blank">
+                      <img
+                        className={classes.icon}
+                        src={iconGitHub}
+                        alt="GitHub"
+                      />
+                    </a>
+                    <a href="https://twitter.com/LukeTreece5" target="_blank">
+                      <img
+                        className={classes.icon}
+                        src={iconTwitter}
+                        alt="Twitter"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div>
+                  <p className={classes.secondaryText}>
+                    Helping you achieve high quality websites with exceptional
+                    user experience
+                  </p>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={6} id="canvas-container">
+              <img
+                className={classes.laptopImg}
+                src={laptop}
+                alt="Three.js Laptop Model"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={1} />
+      </Grid>
+      <StartUp />
+    </div>
+  );
+};
+
+export default LandingPage;

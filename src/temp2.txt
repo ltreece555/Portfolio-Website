@@ -1,0 +1,60 @@
+import React from "react";
+import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    height: "20px",
+    marginTop: "5px",
+    marginBottom: "5px",
+  },
+  languageDisplay: {
+    backgroundColor: "magenta",
+  },
+  bar: {
+    width: "100%",
+    height: "40%",
+    backgroundColor: "purple",
+  },
+  percentageDisplay: {
+    height: "40%",
+    backgroundColor: "lightgray",
+  },
+  percentageDisplayText: {
+    width: "100%",
+    textAlign: "right",
+    paddingRight: "10px",
+  },
+}));
+
+const Skill = ({ language, percentage }) => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.container}>
+      <Grid container>
+        <Grid item xs={3}>
+          <div className={classes.languageDisplay}>
+            <p className={classes.languageDisplayText}>{language}</p>
+          </div>
+        </Grid>
+        <Grid item xs={9}>
+          <Grid container>
+            <Grid item xs={percentage / 10 + 1}>
+              <div className={classes.bar}></div>
+            </Grid>
+            <Grid item xs={11 - percentage / 10}>
+              <div className={classes.percentageDisplay}>
+                <p className={classes.percentageDisplayText}>
+                  {percentage + "%"}
+                </p>
+              </div>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    </div>
+  );
+};
+
+export default Skill;
