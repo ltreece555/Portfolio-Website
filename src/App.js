@@ -6,8 +6,8 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
-import { Grid } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+//import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,16 +32,16 @@ const noscroll = () => {
 const App = () => {
   const classes = useStyles();
   const startUp = useSelector((state) => state.startUp);
-  const mobile = useSelector((state) => state.mobile);
-  const dispatch = useDispatch();
+  //const mobile = useSelector((state) => state.mobile);
+  //const dispatch = useDispatch();
 
-  const setMobile = () => {
-    if (window.outerWidth > 700) {
-      dispatch({ type: "MOBILE_FALSE", payload: false });
-    } else {
-      dispatch({ type: "MOBILE_TRUE", payload: true });
-    }
-  };
+  // const setMobile = () => {
+  //   if (window.outerWidth > 700) {
+  //     dispatch({ type: "MOBILE_FALSE", payload: false });
+  //   } else {
+  //     dispatch({ type: "MOBILE_TRUE", payload: true });
+  //   }
+  // };
 
   // Disable scroll only for startup animation
   if (startUp) {

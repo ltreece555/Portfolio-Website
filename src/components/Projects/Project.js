@@ -4,13 +4,13 @@ import Grid from "@material-ui/core/Grid";
 import Fade from "react-reveal/Fade";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
-import { whileStatement } from "@babel/types";
+import { useMediaQuery, useTheme } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     backgroundColor: "white",
     position: "relative",
-    height: "475px",
+    height: "500px",
   },
   imageContainer: {
     display: "flex",
@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "100%",
     height: "100%",
-    backgroundPosition: "center",
+    minHeight: "200px",
+    backgroundPosition: "center top",
     backgroundSize: "cover",
   },
   viewProject: {
@@ -77,147 +78,54 @@ const Project = ({ direction, title, text, tech, img }) => {
     hover: { opacity: 1 },
   };
 
-  switch (direction) {
-    case "right":
-      return (
-        <Fade left>
-          <Grid
-            container
-            className={classes.container}
-            style={{ backgroundColor: "white" }}
+  const theme = useTheme();
+  const smallScreenUp = useMediaQuery(theme.breakpoints.up("sm"));
+
+  return (
+    <Fade right={direction === "left"} left={direction === "right"}>
+      <Grid
+        container
+        className={classes.container}
+        direction={
+          direction === "right" && smallScreenUp ? "row" : "row-reverse"
+        }
+      >
+        <Grid item className={classes.imageContainer} xs={12} sm={6}>
+          <div
+            className={classes.image}
+            style={{ backgroundImage: `url(${img})` }}
           >
-            <Grid item className={classes.imageContainer} xs={6}>
-              <div
-                className={classes.image}
-                style={{ backgroundImage: `url(${img})` }}
+            <motion.div
+              className={classes.viewProject}
+              style={{ backgroundColor: color.accent }}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              variants={appear}
+            >
+              <motion.button
+                className={classes.viewProjectButton}
+                variants={appear}
+                style={{
+                  backgroundColor: color.accent,
+                }}
               >
-                <motion.div
-                  className={classes.viewProject}
-                  style={{ backgroundColor: color.accent }}
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
-                  variants={appear}
-                >
-                  <motion.button
-                    className={classes.viewProjectButton}
-                    variants={appear}
-                    style={{
-                      backgroundColor: color.accent,
-                    }}
-                  >
-                    <h3 className={classes.viewProjectButtonText}>
-                      View Project
-                    </h3>
-                  </motion.button>
-                </motion.div>
-              </div>
-            </Grid>
-            <Grid item className={classes.infoContainer} xs={6}>
-              <h3 className={classes.title}>{title}</h3>
-              <p className={classes.text}>{text}</p>
-              <p className={classes.tech}>
-                <strong>Tech Used: </strong>
-                {tech}
-              </p>
-            </Grid>
-          </Grid>
-        </Fade>
-      );
-      break;
-    case "left":
-      return (
-        <Fade right>
-          <Grid
-            container
-            className={classes.container}
-            style={{ backgroundColor: "white" }}
-          >
-            <Grid item className={classes.infoContainer} xs={6}>
-              <h3 className={classes.title}>{title}</h3>
-              <p className={classes.text}>{text}</p>
-              <p className={classes.tech}>
-                <strong>Tech Used: </strong>
-                {tech}
-              </p>
-            </Grid>
-            <Grid item className={classes.imageContainer} xs={6}>
-              <div
-                className={classes.image}
-                style={{ backgroundImage: `url(${img})` }}
-              >
-                <motion.div
-                  className={classes.viewProject}
-                  style={{ backgroundColor: color.accent }}
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
-                  variants={appear}
-                >
-                  <motion.button
-                    className={classes.viewProjectButton}
-                    variants={appear}
-                    style={{
-                      backgroundColor: color.accent,
-                    }}
-                  >
-                    <h3 className={classes.viewProjectButtonText}>
-                      View Project
-                    </h3>
-                  </motion.button>
-                </motion.div>
-              </div>
-            </Grid>
-          </Grid>
-        </Fade>
-      );
-    default:
-      return (
-        <Fade left>
-          <Grid
-            container
-            className={classes.container}
-            style={{ backgroundColor: "white" }}
-          >
-            <Grid item className={classes.imageContainer} xs={6}>
-              <div
-                className={classes.image}
-                style={{ backgroundImage: `url(${img})` }}
-              >
-                <motion.div
-                  className={classes.viewProject}
-                  style={{ backgroundColor: color.accent }}
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
-                  variants={appear}
-                >
-                  <motion.button
-                    className={classes.viewProjectButton}
-                    variants={appear}
-                    style={{
-                      backgroundColor: color.accent,
-                    }}
-                  >
-                    <h3 className={classes.viewProjectButtonText}>
-                      View Project
-                    </h3>
-                  </motion.button>
-                </motion.div>
-              </div>
-            </Grid>
-            <Grid item className={classes.infoContainer} xs={6}>
-              <h3 className={classes.title}>{title}</h3>
-              <p className={classes.text}>{text}</p>
-              <p className={classes.tech}>
-                <strong>Tech Used: </strong>
-                {tech}
-              </p>
-            </Grid>
-          </Grid>
-        </Fade>
-      );
-  }
+                <h3 className={classes.viewProjectButtonText}>View Project</h3>
+              </motion.button>
+            </motion.div>
+          </div>
+        </Grid>
+        <Grid item className={classes.infoContainer} xs={12} sm={6}>
+          <h3 className={classes.title}>{title}</h3>
+          <p className={classes.text}>{text}</p>
+          <p className={classes.tech}>
+            <strong>Tech Used: </strong>
+            {tech}
+          </p>
+        </Grid>
+      </Grid>
+    </Fade>
+  );
 };
 
 export default Project;

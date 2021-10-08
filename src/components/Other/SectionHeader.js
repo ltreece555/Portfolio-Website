@@ -27,7 +27,7 @@ const SectionHeader = ({ title, direction }) => {
   const color = useSelector((state) => state.colorPallete);
   const classes = useStyles(color);
 
-  if (direction == "right") {
+  if (direction === "right") {
     return (
       <Fade right cascade>
         <h1 className={classes.sectionTitleText}>{title}</h1>

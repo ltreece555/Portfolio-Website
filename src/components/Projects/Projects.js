@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector } from "react-redux";
 import Grid from "@material-ui/core/Grid";
-import Fade from "react-reveal/Fade";
 import Project from "./Project.js";
 import SectionHeader from "../Other/SectionHeader.js";
 

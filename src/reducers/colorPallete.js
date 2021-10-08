@@ -1,5 +1,4 @@
 const colorPalleteReducer = (state, action) => {
-  console.log(action);
   switch (action.payload) {
     case "1":
       return (state = {

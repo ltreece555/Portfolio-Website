@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import { useSelector } from "react-redux";
-import { color } from "@material-ui/system";
 import { Grid } from "@material-ui/core";
 import { motion } from "framer-motion";
 

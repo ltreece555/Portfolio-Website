@@ -65,6 +65,7 @@ const AboutMe = () => {
                   <img
                     className={classes.iconImage}
                     src="images/speedometer-64.png"
+                    alt="Fast Icon"
                   />
                 </div>
               </Flip>
@@ -82,6 +83,7 @@ const AboutMe = () => {
                   <img
                     className={classes.iconImage}
                     src="images/mobile-phone-8-64.png"
+                    alt="Responsive Icon"
                   />
                 </div>
               </Flip>
@@ -98,6 +100,7 @@ const AboutMe = () => {
                   <img
                     className={classes.iconImage}
                     src="images/lightbulb-2-64.png"
+                    alt="Intuitive Icon"
                   />
                 </div>
               </Flip>
@@ -114,6 +117,7 @@ const AboutMe = () => {
                   <img
                     className={classes.iconImage}
                     src="images/rocket-64.png"
+                    alt="Dynamic Icon"
                   />
                 </div>
               </Flip>
@@ -132,7 +136,7 @@ const AboutMe = () => {
                 <img
                   className={classes.profilePicture}
                   src="images/fun guy.png"
-                  alt="Profile Picture"
+                  alt="My Face"
                 />
                 <h3>Hi, I'm Luke Treece.</h3>
                 <p className={classes.profileText}>

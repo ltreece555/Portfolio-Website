@@ -6,7 +6,6 @@ import Button from "@material-ui/core/Button";
 import Fade from "react-reveal/Fade";
 import { useSelector } from "react-redux";
 import ColorPicker from "./ColorPicker";
-import Dropdown from "./Dropdown/Dropdown";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "horizontal",
     width: "30%",
-    minWidth: "80px",
+    minWidth: "100px",
   },
   languageDisplay: {
     color: "white",
@@ -35,13 +35,16 @@ const useStyles = makeStyles((theme) => ({
     margin: "0px",
     textAlign: "right",
     paddingRight: "10px",
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
+    },
   },
 }));
 
 const Skill = ({ language, percentage }) => {
   const color = useSelector((state) => state.colorPallete);
   const classes = useStyles(color);
-  const percentageString = percentage + "%";
 
   return (
     <div className={classes.skillContainer}>
