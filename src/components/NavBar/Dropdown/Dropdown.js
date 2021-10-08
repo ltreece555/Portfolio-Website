@@ -1,61 +1,16 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
 import "./Dropdown.css";
-import { useSelector } from "react-redux";
-import ColorPicker from "../ColorPicker";
-
-const useStyles = makeStyles((theme) => ({
-  appBarLogo: {
-    width: "50px",
-  },
-}));
+import { ReactComponent as BellIcon } from "./icons/bell.svg";
+import { ReactComponent as MessengerIcon } from "./icons/messenger.svg";
+import { ReactComponent as CaretIcon } from "./icons/caret.svg";
+import { ReactComponent as PlusIcon } from "./icons/plus.svg";
+import { ReactComponent as CogIcon } from "./icons/cog.svg";
+import { ReactComponent as ChevronIcon } from "./icons/chevron.svg";
+import { ReactComponent as ArrowIcon } from "./icons/arrow.svg";
+import { ReactComponent as BoltIcon } from "./icons/bolt.svg";
 
 const Dropdown = () => {
-  const classes = useStyles();
-  const color = useSelector((state) => state.colorPallete);
-  const mobile = useSelector((state) => state.mobile);
-
-  return (
-    <nav style={{ backgroundColor: "none" }}>
-      <label for="drop" class="toggle" id="main-toggle">
-        <span class="nav-icon"></span>
-      </label>
-      <img
-        className={classes.appBarLogo}
-        src={"images/logo.png"}
-        alt="Logo"
-      ></img>
-      <ColorPicker />
-      <input type="checkbox" id="drop" />
-      <ul class="menu">
-        {mobile ? (
-          <>
-            <li style={{ backgroundColor: color.accent }}>
-              <a href="#about">About</a>
-            </li>
-            <li style={{ backgroundColor: color.primary }}>
-              <a href="#projects">Projects</a>
-            </li>
-            <li style={{ backgroundColor: color.accent }}>
-              <a href="#contact">Contact</a>
-            </li>
-          </>
-        ) : (
-          <>
-            <li style={{ backgroundColor: "none" }}>
-              <a href="#about">About</a>
-            </li>
-            <li style={{ backgroundColor: "none" }}>
-              <a href="#projects">Projects</a>
-            </li>
-            <li style={{ backgroundColor: "none" }}>
-              <a href="#contact">Contact</a>
-            </li>
-          </>
-        )}
-      </ul>
-    </nav>
-  );
+  return <div></div>;
 };
 
 export default Dropdown;
