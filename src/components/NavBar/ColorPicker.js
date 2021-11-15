@@ -24,18 +24,11 @@ const useStyles = makeStyles((theme) => ({
 
 const ColorPicker = () => {
   const classes = useStyles();
-  const [value, setValue] = useState("1");
   const color = useSelector((state) => state.colorPallete);
   const dispatch = useDispatch();
 
   const handleColorChange = (event) => {
-    setValue(event.target.value);
     dispatch({ type: "COLOR", payload: event.target.value });
-    if (window.scrollY < 650) {
-      document.getElementById("appBar").style.background = "none";
-    } else {
-      document.getElementById("appBar").style.background = color.primary;
-    }
   };
 
   return (
@@ -43,23 +36,23 @@ const ColorPicker = () => {
       <RadioGroup
         name="color-picker"
         className={classes.radioGroup}
-        value={value}
+        defaultValue={color.id}
         onChange={handleColorChange}
         style={{ flexDirection: "row" }}
       >
         <Radio
           className={classes.radioButton}
-          value="1"
+          value="blue"
           style={{ color: blue[300] }}
         />
         <Radio
           className={classes.radioButton}
-          value="2"
+          value="red"
           style={{ color: red[300] }}
         />
         <Radio
           className={classes.radioButton}
-          value="3"
+          value="green"
           style={{ color: green[300] }}
         />
       </RadioGroup>

@@ -39,9 +39,11 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
   },
   profilePicture: {
-    width: "60%",
     borderRadius: "50%",
-    maxWidth: "300px",
+    width: "300px",
+    height: "300px",
+    maxWidth: "95%",
+    objectFit: "cover",
   },
   profileText: {
     width: "90%",
@@ -135,7 +137,7 @@ const AboutMe = () => {
               <Fade left>
                 <img
                   className={classes.profilePicture}
-                  src="images/fun guy.png"
+                  src="images/Profile Picture.png"
                   alt="My Face"
                 />
                 <h3>Hi, I'm Luke Treece.</h3>

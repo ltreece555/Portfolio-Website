@@ -6,10 +6,24 @@ import Button from "@material-ui/core/Button";
 import Fade from "react-reveal/Fade";
 import { useSelector } from "react-redux";
 import ColorPicker from "./ColorPicker";
+import { useMediaQuery, useTheme } from "@material-ui/core";
+import Dropdown from "./Dropdown/Dropdown";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
+    //backgroundColor: ({ primary }) => primary,
     background: "none",
+    //background: "none",
+    minHeight: "65px",
+  },
+  background: {
+    //background: ({ primary }) => primary,
+    position: "absolute",
+    top: "0",
+    left: "0",
+    // width: "500px",
+    // height: "500px",
+    zIndex: "-100",
   },
   appBarLogoContainer: {
     flexGrow: "1",
@@ -25,9 +39,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const NavBar = () => {
-  const classes = useStyles();
-  const startUp = useSelector((state) => state.startUp);
   const color = useSelector((state) => state.colorPallete);
+  const classes = useStyles(color);
+  const startUp = useSelector((state) => state.startUp);
+
+  const theme = useTheme();
+  const smallScreenUp = useMediaQuery(theme.breakpoints.up("sm"));
 
   const updateNavBar = () => {
     if (document.getElementById("appBar") != null) {
@@ -35,6 +52,7 @@ const NavBar = () => {
         document.getElementById("appBar").style.background = "none";
       } else {
         document.getElementById("appBar").style.background = color.primary;
+        //document.getElementById("appBar").style.background.opacity = 100;
       }
     }
   };
@@ -52,33 +70,58 @@ const NavBar = () => {
   };
 
   if (!startUp) {
-    return (
-      <AppBar id="appBar" className={classes.appBar} elevation={0}>
-        <Fade top>
-          <ToolBar>
-            <div className={classes.appBarLogoContainer}>
-              <a href="#">
-                <img
-                  className={classes.appBarLogo}
-                  src={"images/logo.png"}
-                  alt="Logo"
-                ></img>
-              </a>
-            </div>
-            <ColorPicker />
-            <Button href="#about" className={classes.appBarBtn}>
-              ABOUT
-            </Button>
-            <Button href="#projects" className={classes.appBarBtn}>
-              PROJECTS
-            </Button>
-            <Button href="#contact" className={classes.appBarBtn}>
-              CONTACT
-            </Button>
-          </ToolBar>
-        </Fade>
-      </AppBar>
-    );
+    if (smallScreenUp) {
+      return (
+        <AppBar id="appBar" className={classes.appBar} elevation={0}>
+          <Fade top>
+            {/* <div id="appBarBackground" className={classes.background}> */}
+            <ToolBar>
+              <div className={classes.appBarLogoContainer}>
+                <a href="#">
+                  <img
+                    className={classes.appBarLogo}
+                    src={"images/logo.png"}
+                    alt="Logo"
+                  ></img>
+                </a>
+              </div>
+              <ColorPicker />
+              <Button href="#about" className={classes.appBarBtn}>
+                ABOUT
+              </Button>
+              <Button href="#projects" className={classes.appBarBtn}>
+                PROJECTS
+              </Button>
+              <Button href="#contact" className={classes.appBarBtn}>
+                CONTACT
+              </Button>
+            </ToolBar>
+            {/* </div> */}
+          </Fade>
+        </AppBar>
+      );
+    } else {
+      return (
+        <AppBar id="appBar" className={classes.appBar} elevation={0}>
+          <Fade top>
+            <ToolBar>
+              {/* <div id="appBarBackground" className={classes.background}> */}
+              <div className={classes.appBarLogoContainer}>
+                <a href="#">
+                  <img
+                    className={classes.appBarLogo}
+                    src={"images/logo.png"}
+                    alt="Logo"
+                  ></img>
+                </a>
+              </div>
+              <Dropdown />
+              {/* </div> */}
+            </ToolBar>
+          </Fade>
+        </AppBar>
+      );
+    }
   }
 };
 
