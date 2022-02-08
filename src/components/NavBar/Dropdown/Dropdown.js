@@ -2,21 +2,19 @@ import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CSSTransition } from "react-transition-group";
 import "./Dropdown.css";
-import { ReactComponent as BellIcon } from "./icons/bell.svg";
-import { ReactComponent as MessengerIcon } from "./icons/messenger.svg";
+import { ReactComponent as AboutIcon } from "./icons/about-2.svg";
+import { ReactComponent as ProjectsIcon } from "./icons/projects.svg";
+import { ReactComponent as ContactIcon } from "./icons/contact.svg";
 import { ReactComponent as CaretIcon } from "./icons/caret.svg";
-import { ReactComponent as PlusIcon } from "./icons/plus.svg";
-import { ReactComponent as CogIcon } from "./icons/cog.svg";
 import { ReactComponent as ChevronIcon } from "./icons/chevron.svg";
 import { ReactComponent as ArrowIcon } from "./icons/arrow.svg";
-import { ReactComponent as BoltIcon } from "./icons/bolt.svg";
+import { ReactComponent as PaintbrushIcon } from "./icons/paintbrush.svg";
 import { makeStyles } from "@material-ui/core/styles";
-import { green } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   dropdown: {
     position: "absolute",
-    top: "60px",
+    top: "65px",
     right: "0px",
     width: "100%",
     color: ({ mutedLight }) => mutedLight,
@@ -33,11 +31,13 @@ const useStyles = makeStyles((theme) => ({
   },
   iconButton: {
     backgroundColor: ({ secondary }) => secondary,
+    cursor: "pointer",
     width: "30px",
     height: "30px",
     borderRadius: "50%",
     padding: "5px",
     margin: "5px",
+    marginLeft: "11px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuItem: {
     color: ({ mutedLight }) => mutedLight,
+    cursor: "pointer",
     height: "50px",
     display: "flex",
     alignItems: "center",
@@ -150,6 +151,17 @@ const DropdownMenu = () => {
     );
   }
 
+  const updateNavBar = () => {
+    if (document.getElementById("appBar") != null) {
+      if (window.scrollY < 650) {
+        document.getElementById("appBar").style.background = "none";
+      } else {
+        document.getElementById("appBar").style.background = color.primary;
+        window.scrollBy(0, -1);
+      }
+    }
+  };
+
   return (
     <div
       id="dropdown"
@@ -165,11 +177,17 @@ const DropdownMenu = () => {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem sectionID="#about">About</DropdownItem>
-          <DropdownItem sectionID="#projects">Projects</DropdownItem>
-          <DropdownItem sectionID="#contact">Contact</DropdownItem>
+          <DropdownItem leftIcon={<AboutIcon />} sectionID="#about">
+            About
+          </DropdownItem>
+          <DropdownItem leftIcon={<ProjectsIcon />} sectionID="#projects">
+            Projects
+          </DropdownItem>
+          <DropdownItem leftIcon={<ContactIcon />} sectionID="#contact">
+            Contact
+          </DropdownItem>
           <DropdownItem
-            leftIcon={<CogIcon />}
+            leftIcon={<PaintbrushIcon />}
             rightIcon={<ChevronIcon />}
             goToMenu="settings"
           >
@@ -192,23 +210,26 @@ const DropdownMenu = () => {
           <div
             onClick={() => {
               dispatch({ type: "COLOR", payload: "blue" });
+              updateNavBar();
             }}
           >
-            <DropdownItem leftIcon={<BoltIcon />}>Blue</DropdownItem>
+            <DropdownItem leftIcon={<PaintbrushIcon />}>Blue</DropdownItem>
           </div>
           <div
             onClick={() => {
               dispatch({ type: "COLOR", payload: "red" });
+              updateNavBar();
             }}
           >
-            <DropdownItem leftIcon={<BoltIcon />}>Red</DropdownItem>
+            <DropdownItem leftIcon={<PaintbrushIcon />}>Red</DropdownItem>
           </div>
           <div
             onClick={() => {
               dispatch({ type: "COLOR", payload: "green" });
+              updateNavBar();
             }}
           >
-            <DropdownItem leftIcon={<BoltIcon />}>Green</DropdownItem>
+            <DropdownItem leftIcon={<PaintbrushIcon />}>Green</DropdownItem>
           </div>
         </div>
       </CSSTransition>

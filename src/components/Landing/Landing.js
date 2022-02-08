@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import iconLinkedIn from "./link icons/linkedin.png";
 import iconTwitter from "./link icons/twitter.png";
 import iconGitHub from "./link icons/github.png";
+import iconFacebook from "./link icons/facebook.png";
 import Grid from "@material-ui/core/Grid";
 import StartUp from "../StartUp/StartUp";
 import SpinningLogo from "./SpinningLogo/Scene";
@@ -11,7 +12,9 @@ import { useSelector } from "react-redux";
 const useStyles = makeStyles((theme) => ({
   root: {
     color: "white",
-    height: "100vh",
+    minHeight: "100vh",
+    //height: "calc(100vh - calc(100vh - 100%))",
+    //minHeight: "-webkit-fill-available",
     overflow: "hidden",
   },
   body: {
@@ -27,6 +30,14 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: "1px",
     fontSize: "8vw",
     lineHeight: "8vw",
+    // ["@media (max-width: 800px)"]: {
+    //   fontSize: "32px",
+    //   lineHeight: "32px",
+    // },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "6vw",
+      lineHeight: "6vw",
+    },
     [theme.breakpoints.up("lg")]: {
       textAlign: "left",
       fontSize: "4vw",
@@ -72,14 +83,21 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("lg")]: {
       textAlign: "left",
     },
+    ["@media (max-height: 350px)"]: {
+      visibility: "hidden",
+    },
   },
   canvasContainer: {
-    width: "100%",
+    width: "40vw",
+    height: "25vh",
     [theme.breakpoints.up("sm")]: {
-      height: "20rem",
+      height: "40vh",
     },
     [theme.breakpoints.up("lg")]: {
-      height: "40rem",
+      height: "30vw",
+    },
+    ["@media (max-height: 550px)"]: {
+      visibility: "hidden",
     },
   },
 }));
@@ -87,6 +105,7 @@ const useStyles = makeStyles((theme) => ({
 const LandingPage = () => {
   const classes = useStyles();
   const color = useSelector((state) => state.colorPallete);
+  //const fullPageHeight = window.innerHeight;
 
   return (
     <div
@@ -94,13 +113,14 @@ const LandingPage = () => {
       style={{
         background:
           "linear-gradient(" + color.accent + "," + color.primary + ")",
+        //height: fullPageHeight,
       }}
     >
       <Grid container>
         <Grid item xs={1} />
         <Grid item xs={10}>
           <Grid container className={classes.body}>
-            <Grid item xs={12} lg={6}>
+            <Grid item xs={12} lg={6} className={classes.bodyItem}>
               <p className={classes.mainText}>
                 FRONT-END WEB DEVELOPER & DESIGNER
               </p>
@@ -129,6 +149,16 @@ const LandingPage = () => {
                         className={classes.icon}
                         src={iconTwitter}
                         alt="Twitter"
+                      />
+                    </a>
+                    <a
+                      href="https://www.facebook.com/luke.treece.33"
+                      target="_blank"
+                    >
+                      <img
+                        className={classes.icon}
+                        src={iconFacebook}
+                        alt="Facebook"
                       />
                     </a>
                   </div>

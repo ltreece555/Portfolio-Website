@@ -61,7 +61,19 @@ const useStyles = makeStyles((theme) => ({
     margin: "5px",
     padding: "10px",
   },
+  // style={{ borderColor: color.accent, color: color.accent }}
+  // whileHover={{
+  //   color: color.mutedLight,
+  //   backgroundColor: color.accent,
+  // }}
   submitButton: {
+    color: ({ accent }) => accent,
+    borderColor: ({ accent }) => accent,
+    transition: ".5s",
+    "&:hover": {
+      color: ({ mutedLight }) => mutedLight,
+      backgroundColor: ({ accent }) => accent,
+    },
     width: "125px",
     height: "50px",
     fontFamily: "Sofia Pro, sans-serif",
@@ -85,7 +97,12 @@ const Contact = () => {
   return (
     <div id="contact" className={classes.root}>
       <SectionHeader title="Contact" direction="left" />
-      <form className={classes.form} action="submit" autoComplete="on">
+      <form
+        className={classes.form}
+        action="https://formsubmit.co/luke.treece@gmail.com"
+        method="POST"
+        autoComplete="on"
+      >
         <Fade up cascade>
           <input
             className={classes.infoField}
@@ -95,7 +112,7 @@ const Contact = () => {
           />
           <input
             className={classes.infoField}
-            type="text"
+            type="email"
             name="email"
             placeholder="Email"
           />
@@ -107,14 +124,7 @@ const Contact = () => {
             rows="7"
           ></textarea>
         </Fade>
-        <motion.button
-          className={classes.submitButton}
-          style={{ borderColor: color.accent, color: color.accent }}
-          whileHover={{
-            color: color.mutedLight,
-            backgroundColor: color.accent,
-          }}
-        >
+        <motion.button className={classes.submitButton}>
           <h3 className={classes.submitButtonText}>Submit</h3>
         </motion.button>
       </form>

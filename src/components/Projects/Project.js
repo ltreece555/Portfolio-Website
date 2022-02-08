@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Project = ({ direction, title, text, tech, img }) => {
+const Project = ({ link, direction, title, text, tech, img }) => {
   const classes = useStyles();
   const color = useSelector((state) => state.colorPallete);
 
@@ -95,24 +95,30 @@ const Project = ({ direction, title, text, tech, img }) => {
             className={classes.image}
             style={{ backgroundImage: `url(${img})` }}
           >
-            <motion.div
-              className={classes.viewProject}
-              style={{ backgroundColor: color.accent }}
-              initial="rest"
-              whileHover="hover"
-              animate="rest"
-              variants={appear}
-            >
-              <motion.button
-                className={classes.viewProjectButton}
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              <motion.div
+                className={classes.viewProject}
+                style={{ backgroundColor: color.accent }}
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
                 variants={appear}
-                style={{
-                  backgroundColor: color.accent,
-                }}
               >
-                <h3 className={classes.viewProjectButtonText}>View Project</h3>
-              </motion.button>
-            </motion.div>
+                {/* <a href={link} target="_blank" rel="noopener noreferrer"> */}
+                <motion.button
+                  className={classes.viewProjectButton}
+                  variants={appear}
+                  style={{
+                    backgroundColor: color.accent,
+                  }}
+                >
+                  <h3 className={classes.viewProjectButtonText}>
+                    View Project
+                  </h3>
+                </motion.button>
+                {/* </a> */}
+              </motion.div>
+            </a>
           </div>
         </Grid>
         <Grid item className={classes.infoContainer} xs={12} sm={6}>

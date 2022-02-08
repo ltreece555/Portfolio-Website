@@ -1,5 +1,5 @@
 // change "state" to true for startup animation
-const startUpReducer = (state = false, action) => {
+const startUpReducer = (state = true, action) => {
   switch (action.type) {
     case "STARTUP_TRUE":
       return (state = true);

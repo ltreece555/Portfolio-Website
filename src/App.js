@@ -11,13 +11,15 @@ import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    height: "-webkit-fill-available",
     fontFamily: "Sofia Pro, sans-serif",
     // fontSize: "16px",
-    fontSize: "14px",
-    lineHeight: "27px",
+    fontSize: "12px",
+    lineHeight: "20px",
     fontWeight: "300",
     [theme.breakpoints.up("sm")]: {
       fontSize: "16px",
+      lineHeight: "27px",
     },
     [theme.breakpoints.up("md")]: {
       fontSize: "18px",

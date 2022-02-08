@@ -11,18 +11,20 @@ import Dropdown from "./Dropdown/Dropdown";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    //backgroundColor: ({ primary }) => primary,
+    backgroundColor: "none",
     background: "none",
-    //background: "none",
+    minHeight: "65px",
+    lineHeight: "0px",
+  },
+  toolBar: {
     minHeight: "65px",
   },
   background: {
-    //background: ({ primary }) => primary,
     position: "absolute",
     top: "0",
     left: "0",
-    // width: "500px",
-    // height: "500px",
+    width: "100%",
+    height: "65px",
     zIndex: "-100",
   },
   appBarLogoContainer: {
@@ -30,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarLogo: {
     flexGrow: 1,
-    width: "50px",
+    width: "40px",
+    margin: "5px",
   },
   appBarBtn: {
     textTransform: "none",
@@ -52,7 +55,6 @@ const NavBar = () => {
         document.getElementById("appBar").style.background = "none";
       } else {
         document.getElementById("appBar").style.background = color.primary;
-        //document.getElementById("appBar").style.background.opacity = 100;
       }
     }
   };
@@ -74,13 +76,12 @@ const NavBar = () => {
       return (
         <AppBar id="appBar" className={classes.appBar} elevation={0}>
           <Fade top>
-            {/* <div id="appBarBackground" className={classes.background}> */}
-            <ToolBar>
+            <ToolBar className={classes.toolBar}>
               <div className={classes.appBarLogoContainer}>
                 <a href="#">
                   <img
                     className={classes.appBarLogo}
-                    src={"images/logo.png"}
+                    src={"images/logo-white.png"}
                     alt="Logo"
                   ></img>
                 </a>
@@ -96,7 +97,6 @@ const NavBar = () => {
                 CONTACT
               </Button>
             </ToolBar>
-            {/* </div> */}
           </Fade>
         </AppBar>
       );
@@ -104,24 +104,24 @@ const NavBar = () => {
       return (
         <AppBar id="appBar" className={classes.appBar} elevation={0}>
           <Fade top>
-            <ToolBar>
-              {/* <div id="appBarBackground" className={classes.background}> */}
+            <ToolBar className={classes.toolBar}>
               <div className={classes.appBarLogoContainer}>
                 <a href="#">
                   <img
                     className={classes.appBarLogo}
-                    src={"images/logo.png"}
+                    src={"images/logo-white.png"}
                     alt="Logo"
                   ></img>
                 </a>
               </div>
               <Dropdown />
-              {/* </div> */}
             </ToolBar>
           </Fade>
         </AppBar>
       );
     }
+  } else {
+    return null;
   }
 };
 

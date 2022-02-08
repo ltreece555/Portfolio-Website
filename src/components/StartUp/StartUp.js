@@ -110,20 +110,22 @@ const StartUpScreen = () => {
             variants={blockWaveVariants}
             transition={blockWaveTransition}
           >
-            <a href="#about" className="call-to-action">
-              <p
-                className="call-to-action-text"
-                style={{ color: color.mutedDark }}
-              >
-                Here's what I can do
-              </p>
-              <p
-                className="call-to-action-pointer"
-                style={{ color: color.mutedDark }}
-              >
-                V
-              </p>
-            </a>
+            <Fade top>
+              <a href="#about" className="call-to-action">
+                <p
+                  className="call-to-action-text"
+                  style={{ color: color.mutedDark, marginBottom: "0px" }}
+                >
+                  Here's what I can do
+                </p>
+                <p
+                  className="call-to-action-pointer"
+                  style={{ color: color.mutedDark, marginTop: "5px" }}
+                >
+                  V
+                </p>
+              </a>
+            </Fade>
           </motion.div>
           <motion.div
             className="bottomBlock bottomBlock-3"

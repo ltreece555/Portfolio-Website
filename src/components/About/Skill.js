@@ -24,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   languageDisplayText: {
+    height: "100%",
+    textAlign: "center",
     margin: "0px",
   },
   percentageContainer: {

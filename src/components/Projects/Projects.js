@@ -28,15 +28,17 @@ const Projects = () => {
           <Grid container>
             <Grid item xs={12} md={6}>
               <Project
+                link="http://weatherapp.luketreece.com"
                 direction="right"
                 title="Weather App"
-                text="This app, powered by the AccuWeather Web-API, gives an 8 day forecast for the area of your choice in the form of a daily and hourly weather report as well as a temperature statistics chart."
+                text="This app, powered by the AccuWeather Web-API, gives an 8 day forecast in the form of a daily and hourly weather report as well as a temperature statistics chart."
                 tech="React, Web-API, Chart.js"
                 img="./images/Weather-App.JPG"
               />
             </Grid>
             <Grid item xs={12} md={6}>
               <Project
+                link="http://pokedex.luketreece.com"
                 direction="left"
                 title="Pokedex"
                 text="This app integrates a Web-API to show a complete list of all Pokemon. The project also includes a search bar to only search for certain pokemon names."
@@ -48,6 +50,7 @@ const Projects = () => {
           <Grid container>
             <Grid item xs={12} md={6}>
               <Project
+                link="http://tasktracker.luketreece.com"
                 direction="right"
                 title="Task Tracker"
                 text="This smaller application exhibits an intuitive user experience and shows my comfortability with crafting custom components."
@@ -57,6 +60,7 @@ const Projects = () => {
             </Grid>
             <Grid item xs={12} md={6}>
               <Project
+                link="http://xboxhomepageclone.luketreece.com"
                 direction="left"
                 title="Xbox Homepage Clone"
                 text="This is an example of my ability to take a given design and recreate it from scratch."
