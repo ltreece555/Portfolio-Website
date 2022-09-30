@@ -10,13 +10,15 @@ import SpinningLogo from "./SpinningLogo/Scene";
 import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  root: (props) => ({
     color: "white",
-    minHeight: "100vh",
+    height: "100vh",
+    //height: "50vh",
+    height: props.mobileContainer.height,
     //height: "calc(100vh - calc(100vh - 100%))",
     //minHeight: "-webkit-fill-available",
     overflow: "hidden",
-  },
+  }),
   body: {
     marginTop: "100px",
     [theme.breakpoints.up("lg")]: {
@@ -103,7 +105,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LandingPage = () => {
-  const classes = useStyles();
+  const styleProps = {
+    mobileContainer: {
+      height: "100vh",
+    },
+  };
+  const classes = useStyles(styleProps);
   const color = useSelector((state) => state.colorPallete);
   //const fullPageHeight = window.innerHeight;
 
