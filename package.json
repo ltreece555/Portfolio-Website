@@ -4,24 +4,25 @@
   "homepage": "https://luketreece.com",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@react-three/drei": "^7.1.2",
-    "@react-three/fiber": "^7.0.5",
+    "@material-ui/core": "^4.12.4",
+    "@react-three/drei": "^9.99.5",
+    "@react-three/fiber": "^8.0",
     "@reduxjs/toolkit": "^1.6.0",
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "framer-motion": "^4.1.17",
-    "git": "^0.1.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-native": "^0.64.2",
+    "nth-check": "^2.1.1",
+    "react": "18.0",
+    "react-dom": "18.0",
+    "react-native": "^0.73.5",
     "react-redux": "^7.2.4",
     "react-reveal": "^1.2.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.1",
     "redux": "^4.1.0",
-    "three": "^0.130.1",
-    "web-vitals": "^1.1.2"
+    "three": "^0.162",
+    "web-vitals": "^1.1.2",
+    "postcss": "^8.4.35"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,5 +47,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "overrides": {
+    "nth-check": "$nth-check",
+    "postcss": "$postcss"
   }
 }
