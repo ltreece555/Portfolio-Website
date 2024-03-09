@@ -13,7 +13,7 @@ const Scene = () => {
     <Canvas shadows colorManagement camera={{ position: [0, 0, 9], fov: 60 }}>
       <ambientLight intensity={0.7} />
       <directionalLight
-        castShadow
+        // castShadow
         position={[0, 5, 0]}
         intensity={0}
         shadow-mapSize-width={1024}
@@ -24,8 +24,9 @@ const Scene = () => {
         shadow-camera-top={10}
         shadow-camera-bottom={-10}
       />
-      <pointLight position={[-10, 0, -20]} intensity={0.5} />
-      <pointLight position={[0, -10, 0]} intensity={1.5} />
+      <pointLight position={[10, 0, 0]} intensity={1000} />
+      <pointLight position={[0, 0, 10]} intensity={1000} />
+      {/* <pointLight position={[0, -10, 0]} intensity={1.5} /> */}
       <Suspense fallback={null}>
         <Model />
       </Suspense>
