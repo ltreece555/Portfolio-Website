@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: row;
   position: absolute;
-  bottom: 0;
+  bottom: -10vh;
   width: 100%;
   margin: 0;
   z-index: 0;
@@ -26,50 +26,52 @@
 }
 
 .bottomBlock-1 {
-  height: 10vh;
+  height: 20vh;
 }
 
 .bottomBlock-2 {
-  height: 15vh;
+  height: 25vh;
 }
 
 .bottomBlock-3 {
-  height: 12.5vh;
+  height: 22.5vh;
 }
 
 .shrink-container-appear {
-  height: 100vh;
+  height: 110vh;
+  bottom: 0;
 }
 
 .shrink-1-appear {
-  height: 100vh;
+  height: 110vh;
 }
 
 .shrink-2-appear {
-  height: 100vh;
+  height: 110vh;
 }
 
 .shrink-3-appear {
-  height: 100vh;
+  height: 110vh;
 }
 
 .shrink-container-appear.shrink-container-appear-active {
-  height: 20vh;
+  height: 30vh;
+  bottom: -10vh;
   transition: height 1500ms ease-out 3000ms;
 }
 
 .shrink-1-appear.shrink-1-appear-active {
-  height: 10vh;
+  height: 20vh;
   transition: height 1500ms ease-out 2500ms;
 }
 
 .shrink-2-appear.shrink-2-appear-active {
-  height: 15vh;
+  height: 25vh;
   transition: height 1500ms ease-out 2900ms;
 }
 
 .shrink-3-appear.shrink-3-appear-active {
-  height: 12.5vh;
+  height: 22.5vh;
   transition: height 1500ms ease-out 2750ms;
 }
 
