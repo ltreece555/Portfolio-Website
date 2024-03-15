@@ -72,17 +72,21 @@ const useStyles = makeStyles((theme) => ({
 const Project = ({ link, direction, title, text, tech, img }) => {
   const classes = useStyles();
   const color = useSelector((state) => state.colorPallete);
-
+  const theme = useTheme();
+  const smallScreenUp = useMediaQuery(theme.breakpoints.up("sm"));
   const appear = {
     rest: { opacity: 0 },
     hover: { opacity: 1 },
   };
 
-  const theme = useTheme();
-  const smallScreenUp = useMediaQuery(theme.breakpoints.up("sm"));
-
   return (
     <Fade right={direction === "left"} left={direction === "right"}>
+      {/* <motion.div
+        whileHover={{
+          scale: 1.1,
+          zIndex: 1
+        }}
+        > */}
       <Grid
         container
         className={classes.container}
@@ -92,6 +96,7 @@ const Project = ({ link, direction, title, text, tech, img }) => {
       >
         <Grid item className={classes.imageContainer} xs={12} sm={6}>
           <div
+            
             className={classes.image}
             style={{ backgroundImage: `url(${img})` }}
           >
@@ -130,6 +135,7 @@ const Project = ({ link, direction, title, text, tech, img }) => {
           </p>
         </Grid>
       </Grid>
+      {/* </motion.div> */}
     </Fade>
   );
 };

@@ -10,7 +10,7 @@ import { Environment, OrbitControls } from "@react-three/drei";
 
 const Scene = () => {
   return (
-    <Canvas shadows colorManagement camera={{ position: [0, 0, 9], fov: 60 }}>
+    <Canvas shadows colorManagement camera={{ position: [0, 0, 6.75], fov: 60 }}>
       <ambientLight intensity={0.7} />
       <directionalLight
         // castShadow

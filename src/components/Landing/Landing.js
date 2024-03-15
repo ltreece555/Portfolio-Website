@@ -30,15 +30,11 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "IntegralCF, sans-serif",
     fontWeight: "900",
     letterSpacing: "1px",
-    fontSize: "8vw",
-    lineHeight: "8vw",
-    // ["@media (max-width: 800px)"]: {
-    //   fontSize: "32px",
-    //   lineHeight: "32px",
-    // },
+    fontSize: "6.5vw",
+    lineHeight: "6.5vw",
     [theme.breakpoints.up("md")]: {
-      fontSize: "6vw",
-      lineHeight: "6vw",
+      fontSize: "5.5vw",
+      lineHeight: "5.5vw",
     },
     [theme.breakpoints.up("lg")]: {
       textAlign: "left",
@@ -82,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: "27px",
     fontWeight: "300",
     margin: "0",
+    marginBottom: "25px",
     [theme.breakpoints.up("lg")]: {
       textAlign: "left",
     },
@@ -93,10 +90,12 @@ const useStyles = makeStyles((theme) => ({
     width: "40vw",
     height: "25vh",
     [theme.breakpoints.up("sm")]: {
-      height: "40vh",
+      //height: "40vh",
+      height: "25vh",
     },
     [theme.breakpoints.up("lg")]: {
-      height: "30vw",
+      //height: "30vw",
+      height: "25vw",
     },
     ["@media (max-height: 550px)"]: {
       visibility: "hidden",
